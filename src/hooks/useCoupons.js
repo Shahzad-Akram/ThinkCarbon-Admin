@@ -13,7 +13,6 @@ export const useCoupons = () => {
         setIsLoading(false);
       })
       .catch((err) => {
-        console.log(err.response.data);
         setIsLoading(false);
       });
   }, []);

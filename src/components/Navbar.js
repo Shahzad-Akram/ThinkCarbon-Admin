@@ -24,8 +24,15 @@ const Appbar = () => {
       {isLoggedIn ? (
         <Navbar color='light' className='shadow-sm p-3' light expand='md'>
           <Container>
-            <NavbarBrand href='/'>
-              <img src={Logo} alt='Nadaasi Logo' width='90px' />
+            <NavbarBrand>
+              <NavLink
+                exact={true}
+                activeClassName='text-dark font-weight-bold '
+                tag={RRNavLink}
+                to='/coupons'
+              >
+                <img src={Logo} alt='Nadaasi Logo' width='90px' />
+              </NavLink>
             </NavbarBrand>
             <NavbarToggler onClick={toggle} />
             <Collapse isOpen={isOpen} navbar>

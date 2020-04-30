@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Form, FormGroup, Input, Col, Label, Alert } from 'reactstrap';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
+import logo from '../assets/images/logo.png';
+
 export const Login = () => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
@@ -45,7 +47,11 @@ export const Login = () => {
     <div className='d-flex justify-content-center align-items-center h-100vh'>
       <Col md={6} className='m-auto'>
         {error && <Alert color='danger'>Invalid Credentials.</Alert>}
-        <Form onSubmit={onSubmit}>
+        <img src={logo} alt='logo' width='100%' />
+        <small className='text-right w-100 d-block px-2 font-weight-bold '>
+          Admin
+        </small>
+        <Form className='mt-4' onSubmit={onSubmit}>
           <FormGroup>
             <Label>Email</Label>
             <Input
@@ -53,6 +59,7 @@ export const Login = () => {
               onChange={(e) => {
                 setEmail(e.target.value);
               }}
+              placeholder='Enter Email Address'
               required
             />
           </FormGroup>
@@ -60,6 +67,7 @@ export const Login = () => {
             <Label>Password</Label>
             <Input
               type='password'
+              placeholder='Enter Password'
               onChange={(e) => {
                 setPassword(e.target.value);
               }}

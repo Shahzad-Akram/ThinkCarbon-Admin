@@ -19,6 +19,7 @@ export const Login = () => {
       setAuthorizationToken();
       history.push('/coupons');
     }
+    // eslint-disable-next-line
   }, []);
 
   const onSubmit = (e) => {

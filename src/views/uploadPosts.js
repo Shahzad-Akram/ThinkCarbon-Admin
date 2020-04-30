@@ -64,6 +64,7 @@ export const UploadPosts = () => {
           setIsLoading(false);
         });
     } else {
+      // eslint-disable-next-line
       inputFields.map((inputField) => {
         formData.append('title', inputField.title);
         formData.append('description', inputField.description);

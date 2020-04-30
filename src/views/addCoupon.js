@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 import axios from 'axios';
@@ -8,19 +8,26 @@ import { setAuthorizationToken } from '../helpers/utils';
 export const AddCoupon = () => {
   useIsAdmin();
 
-  const { register, handleSubmit, errors } = useForm();
+  const { register, handleSubmit, errors, reset } = useForm();
+  const [isLoading, setIsLoading] = useState(false);
 
   const onSubmit = (data) => {
+    setIsLoading(true);
     setAuthorizationToken();
     axios
       .post('/coupon', data)
       .then((res) => {
+        setIsLoading(false);
         toast.success(res.data.Message, {
           autoClose: '1500',
         });
+        reset();
       })
       .catch((err) => {
-        toast(err.response.data.Message);
+        setIsLoading(false);
+        toast(err.response.data.Message, {
+          autoClose: '1500',
+        });
       });
   };
   return (
@@ -94,7 +101,18 @@ export const AddCoupon = () => {
             </div>
           )}
         </div>
-        <input className='btn btn-primary ' type='submit' value='Add Coupon' />
+        <button
+          type='submit'
+          className='btn btn-block btn-dark mb-2'
+          disabled={isLoading}
+        >
+          <span
+            className={isLoading ? 'mr-2 spinner-border spinner-border-sm' : ''}
+            role='status'
+            aria-hidden='true'
+          ></span>
+          {isLoading ? 'Uploading...' : 'Upload'}
+        </button>
       </form>
     </div>
   );

@@ -7,6 +7,7 @@ import { useDropzone } from 'react-dropzone';
 import Toggle from 'react-toggle';
 import axios from 'axios';
 import { OPTIONS } from '../config/selectConfig';
+import { toast } from 'react-toastify';
 
 export const ProductForm = () => {
   const { handleSubmit, register } = useForm();
@@ -16,6 +17,7 @@ export const ProductForm = () => {
   const [dressSize, setDressSize] = useState([]);
   const [dressColor, setDressColor] = useState([]);
   const [inStock, setInStock] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
 
   const [placeholder, setPlaceHolder] = useState([]);
 
@@ -32,6 +34,7 @@ export const ProductForm = () => {
   const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
 
   const onSubmit = (data) => {
+    setIsLoading(true);
     const {
       price,
       name,
@@ -67,10 +70,16 @@ export const ProductForm = () => {
     axios
       .post('/product', formdata)
       .then((res) => {
-        console.log(res.data);
+        setIsLoading(false);
+        toast.success('Product Added Successfully', {
+          autoClose: '1500',
+        });
       })
       .catch((err) => {
-        console.log(err.response.data);
+        setIsLoading(false);
+        toast.error('Unable To Add Product', {
+          autoClose: '1500',
+        });
       });
   };
   return (
@@ -268,11 +277,20 @@ export const ProductForm = () => {
         </div>
 
         <div className='col-md-12 '>
-          <input
-            className='btn btn-outline-info btn-block'
+          <button
             type='submit'
-            value='Submit'
-          />
+            className='btn btn-block btn-dark mb-2'
+            disabled={isLoading}
+          >
+            <span
+              className={
+                isLoading ? 'mr-2 spinner-border spinner-border-sm' : ''
+              }
+              role='status'
+              aria-hidden='true'
+            ></span>
+            {isLoading ? 'Uploading...' : 'Upload'}
+          </button>
         </div>
       </div>
     </form>

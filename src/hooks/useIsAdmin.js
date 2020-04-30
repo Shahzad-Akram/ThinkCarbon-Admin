@@ -12,5 +12,6 @@ export const useIsAdmin = () => {
       setAuthorizationToken();
       history.push('/');
     }
+    // eslint-disable-next-line
   }, []);
 };

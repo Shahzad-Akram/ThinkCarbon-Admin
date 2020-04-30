@@ -14,7 +14,7 @@ export const stringTruncate = (str, length) => {
 export const Posts = () => {
   const [feedback, setFeedback] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  // useIsAdmin();
+  useIsAdmin();
 
   useEffect(() => {
     setAuthorizationToken();

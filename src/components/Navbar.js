@@ -17,9 +17,7 @@ const Appbar = () => {
   const history = useHistory();
   const toggle = () => setIsOpen(!isOpen);
 
-  // const isLoggedIn = localStorage.getItem('loggedIn');
-
-  const isLoggedIn = true;
+  const isLoggedIn = localStorage.getItem('loggedIn');
 
   return (
     <div>

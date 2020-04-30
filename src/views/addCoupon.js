@@ -2,8 +2,11 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 import axios from 'axios';
+import { useIsAdmin } from '../hooks/useIsAdmin';
 
 export const AddCoupon = () => {
+  useIsAdmin();
+
   const { register, handleSubmit, errors } = useForm();
 
   const onSubmit = (data) => {

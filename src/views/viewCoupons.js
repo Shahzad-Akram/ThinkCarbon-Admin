@@ -2,8 +2,10 @@ import React from 'react';
 
 import { useCoupons } from '../hooks/useCoupons';
 import { Coupon } from '../components/coupon';
+import { useIsAdmin } from '../hooks/useIsAdmin';
 
 export const ViewCoupon = () => {
+  useIsAdmin();
   const { coupons, isLoading } = useCoupons();
 
   return (

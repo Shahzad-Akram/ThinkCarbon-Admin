@@ -1,8 +1,10 @@
 import React from 'react';
 import { useProducts } from '../hooks/useProducts';
 import { ProductList } from '../components/product/productList';
+import { useIsAdmin } from '../hooks/useIsAdmin';
 
 export const ViewProducts = () => {
+  useIsAdmin();
   const { products, isLoading, stats } = useProducts();
   return (
     <div className='container mt-4'>

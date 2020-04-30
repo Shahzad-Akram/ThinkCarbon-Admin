@@ -20,7 +20,7 @@ export const Login = () => {
   useEffect(() => {
     if (localStorage.getItem('loggedIn')) {
       setAuthorizationToken();
-      history.push('/users');
+      history.push('/coupons');
     }
   });
 
@@ -33,10 +33,10 @@ export const Login = () => {
     };
 
     axios
-      .post('/signin/admin', payload)
+      .post('/auth/admin', payload)
       .then((res) => {
         localStorage.setItem('loggedIn', res.data.token);
-        history.push('/users');
+        history.push('/coupons');
       })
       .catch((err) => setError(true));
   };
@@ -53,6 +53,7 @@ export const Login = () => {
               onChange={(e) => {
                 setEmail(e.target.value);
               }}
+              required
             />
           </FormGroup>
           <FormGroup>
@@ -62,6 +63,7 @@ export const Login = () => {
               onChange={(e) => {
                 setPassword(e.target.value);
               }}
+              required
             />
           </FormGroup>
           <Input type='submit' value='Login' />

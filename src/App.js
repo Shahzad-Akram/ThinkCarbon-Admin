@@ -18,7 +18,7 @@ function App() {
       <ToastContainer />
       <Appbar />
       <Switch>
-        {/* <Route exact path='/' component={Login} /> */}
+        <Route exact path='/' component={Login} />
         <Route exact path='/users' component={Users} />
         <Route exact path='/feedback' component={Posts} />
         <Route exact path='/upload-posts' component={UploadPosts} />

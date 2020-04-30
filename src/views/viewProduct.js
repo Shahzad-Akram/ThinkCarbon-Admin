@@ -2,8 +2,10 @@ import React from 'react';
 import { useProducts } from '../hooks/useProducts';
 import { ProductList } from '../components/product/productList';
 import { useIsAdmin } from '../hooks/useIsAdmin';
+import { setAuthorizationToken } from '../helpers/utils';
 
 export const ViewProducts = () => {
+  setAuthorizationToken();
   useIsAdmin();
   const { products, isLoading, stats } = useProducts();
   return (

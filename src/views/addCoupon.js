@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 import axios from 'axios';
 import { useIsAdmin } from '../hooks/useIsAdmin';
+import { setAuthorizationToken } from '../helpers/utils';
 
 export const AddCoupon = () => {
   useIsAdmin();
@@ -10,6 +11,7 @@ export const AddCoupon = () => {
   const { register, handleSubmit, errors } = useForm();
 
   const onSubmit = (data) => {
+    setAuthorizationToken();
     axios
       .post('/coupon', data)
       .then((res) => {

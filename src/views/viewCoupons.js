@@ -3,8 +3,10 @@ import React from 'react';
 import { useCoupons } from '../hooks/useCoupons';
 import { Coupon } from '../components/coupon';
 import { useIsAdmin } from '../hooks/useIsAdmin';
+import { setAuthorizationToken } from '../helpers/utils';
 
 export const ViewCoupon = () => {
+  setAuthorizationToken();
   useIsAdmin();
   const { coupons, isLoading } = useCoupons();
 

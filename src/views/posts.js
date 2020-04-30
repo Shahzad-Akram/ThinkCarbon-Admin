@@ -15,7 +15,6 @@ export const Posts = () => {
   const [feedback, setFeedback] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   useIsAdmin();
-
   useEffect(() => {
     setAuthorizationToken();
     axios

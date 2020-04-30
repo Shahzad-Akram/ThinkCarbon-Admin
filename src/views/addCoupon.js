@@ -15,10 +15,8 @@ export const AddCoupon = () => {
     axios
       .post('/coupon', data)
       .then((res) => {
-        console.log(res.data);
         toast.success(res.data.Message, {
-          position: 'bottom-right',
-          autoClose: '2000',
+          autoClose: '1500',
         });
       })
       .catch((err) => {

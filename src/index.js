@@ -7,7 +7,7 @@ import axios from 'axios';
 
 const baseURL =
   window.location.hostname === 'localhost'
-    ? 'http://localhost:3000'
+    ? 'https://nadaasi-backend.herokuapp.com/'
     : 'https://nadaasi-backend.herokuapp.com/';
 
 if (process.env.API) axios.defaults.baseURL = process.env.API;

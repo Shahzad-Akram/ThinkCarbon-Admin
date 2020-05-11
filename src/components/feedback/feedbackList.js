@@ -1,11 +1,10 @@
 import React from 'react';
-import { Feedback } from '../../views/feedback';
-
+import FeedbackItem from './feedbackItem';
 export default function FeedbackList({ feedbacks }) {
   return (
     <>
       {feedbacks.map((feedback) => (
-        <Feedback feedback={feedback} />
+        <FeedbackItem feedback={feedback} />
       ))}
     </>
   );

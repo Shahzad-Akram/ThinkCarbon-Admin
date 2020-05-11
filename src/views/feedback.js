@@ -17,7 +17,9 @@ export const stringTruncate = (str, length) => {
 export const Feedback = () => {
   const [feedback, setFeedback] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+
   useIsAdmin();
+
   useEffect(() => {
     setAuthorizationToken();
     axios

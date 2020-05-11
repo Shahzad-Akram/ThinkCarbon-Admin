@@ -12,13 +12,13 @@ export default function FeedbackItem({ feedback }) {
       <div className='col-md-2'>
         <small className='d-flex flex-column'>
           <span className='text-muted border-bottom py-1'>Name</span>
-          <span className=' py-1'>{name}</span>
+          <span className=' text-capitalize py-1'>{name}</span>
         </small>
       </div>
       <div className='col-md-2'>
         <small className='d-flex flex-column '>
           <span className='text-muted border-bottom py-1 '>Subject</span>
-          <span className=' py-1'>{subject}</span>
+          <span className='text-capitalize py-1'>{subject}</span>
         </small>
       </div>
       <div className='col-md-3'>

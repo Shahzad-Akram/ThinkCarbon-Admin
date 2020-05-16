@@ -83,6 +83,16 @@ const Appbar = () => {
                 exact={true}
                 activeClassName='text-light font-weight-bold '
                 tag={RRNavLink}
+                to='/orders'
+              >
+                Orders
+              </NavLink>
+            </MenuItem>
+            <MenuItem>
+              <NavLink
+                exact={true}
+                activeClassName='text-light font-weight-bold '
+                tag={RRNavLink}
                 to='/feedback'
               >
                 Feedback

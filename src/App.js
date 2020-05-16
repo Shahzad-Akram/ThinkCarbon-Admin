@@ -16,17 +16,25 @@ function App() {
   return (
     <>
       <ToastContainer />
-      <Appbar />
-      <Switch>
-        <Route exact path='/' component={Login} />
-        <Route exact path='/users' component={Users} />
-        <Route exact path='/feedback' component={Feedback} />
-        {/* <Route exact path='/upload-posts' component={UploadPosts} /> */}
-        <Route exact path='/upload-product' component={UploadProduct} />
-        <Route exact path='/products' component={ViewProducts} />
-        <Route exact path='/add-coupon' component={AddCoupon} />
-        <Route exact path='/coupons' component={ViewCoupon} />
-      </Switch>
+      <div className='container-fluid p-0 overflow-hidden'>
+        <div className='d-flex'>
+          <div>
+            <Appbar />
+          </div>
+          <div className='main'>
+            <Switch>
+              <Route exact path='/' component={Login} />
+              <Route exact path='/users' component={Users} />
+              <Route exact path='/feedback' component={Feedback} />
+              {/* <Route exact path='/upload-posts' component={UploadPosts} /> */}
+              <Route exact path='/upload-product' component={UploadProduct} />
+              <Route exact path='/products' component={ViewProducts} />
+              <Route exact path='/add-coupon' component={AddCoupon} />
+              <Route exact path='/coupons' component={ViewCoupon} />
+            </Switch>
+          </div>
+        </div>
+      </div>
     </>
   );
 }

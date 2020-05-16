@@ -60,7 +60,7 @@ export const ProductItem = ({ product }) => {
             </div>
             <div>
               <div class='font-weight-bold d-flex justify-content-end border-bottom align-items-end'>
-                <h5 class=' text-success font-weight-bold'>$ {price}</h5>
+                <h5 class=' text-success font-weight-bold'>￡ {price}</h5>
               </div>
               <div class='font-weight-bold d-flex mt-2'>
                 <span className='mr-1'>In Stock</span>

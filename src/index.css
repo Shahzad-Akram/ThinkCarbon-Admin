@@ -44,6 +44,8 @@ body {
 .sm-category {
   height: 20px;
   width: 20px;
+  object-fit: cover;
+  object-position: top;
 }
 .custom-my-img-small {
   height: 40px;

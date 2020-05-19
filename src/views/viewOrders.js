@@ -9,7 +9,6 @@ export const ViewOrders = () => {
     axios
       .get('/order')
       .then((res) => {
-        console.log(res.data);
         setOrders(res.data);
       })
       .catch((err) => {

@@ -4,7 +4,7 @@ export default function FeedbackList({ feedbacks }) {
   return (
     <>
       {feedbacks.map((feedback) => (
-        <FeedbackItem feedback={feedback} />
+        <FeedbackItem key={feedback._id} feedback={feedback} />
       ))}
     </>
   );

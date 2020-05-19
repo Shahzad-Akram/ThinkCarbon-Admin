@@ -2,16 +2,25 @@ import React from 'react';
 import Toggle from 'react-toggle';
 import axios from 'axios';
 export const ProductItem = ({ product }) => {
-  const { name, color, images, inStock, price, size, dressType, _id } = product;
+  const {
+    name,
+    color,
+    images,
+    inStock,
+    price,
+    size,
+    dressType,
+    _id,
+    isActive,
+  } = product;
+
   const handleChange = (_id, status) => {
-    const payload = {
-      inStock: status,
-    };
     axios
-      .patch(`/product/${_id}`, payload)
+      .patch(`/product/${_id}`, status)
       .then((res) => console.log(res.data))
       .catch((err) => console.log(err.response.data));
   };
+
   return (
     <div class='shadow-sm mb-2 rounded-lg list-group-item list-group-item-action'>
       <div class='row'>
@@ -67,7 +76,14 @@ export const ProductItem = ({ product }) => {
                 <Toggle
                   defaultChecked={inStock}
                   onChange={() => {
-                    handleChange(_id, !inStock);
+                    handleChange(_id, { inStock: !inStock });
+                  }}
+                />
+                <span className='ml-2 mr-2'>Is Active</span>
+                <Toggle
+                  defaultChecked={isActive}
+                  onChange={() => {
+                    handleChange(_id, { isActive: !isActive });
                   }}
                 />
               </div>

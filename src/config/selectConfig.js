@@ -40,6 +40,10 @@ export const OPTIONS = {
       label: 'A-Line',
     },
     {
+      value: 'ball-gown',
+      label: 'Ball Gown',
+    },
+    {
       value: 'a-line-princess',
       label: 'A-Line / Princess',
     },

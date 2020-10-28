@@ -13,7 +13,7 @@ export const ProductForm = () => {
   const { handleSubmit, register } = useForm();
 
   const [images, setImages] = useState([]);
-  const [dressType, setDressType] = useState();
+  const [category, setCategory] = useState();
   const [dressSize, setDressSize] = useState([]);
   const [dressColor, setDressColor] = useState([]);
   const [inStock, setInStock] = useState(true);
@@ -38,34 +38,31 @@ export const ProductForm = () => {
     const {
       price,
       name,
-      closure,
       details,
-      fabric,
-      length,
-      neckLine,
-      waistLine,
-      modelHAndS,
+      subCategory,
+      brand,
+      color,
+      rating,
+      stockQuantity,
+
+
     } = data;
     const formdata = new FormData();
 
-    const productDetails = {
-      closure,
-      details,
-      fabric,
-      length,
-      neckLine,
-      waistLine,
-      modelHAndS,
-    };
+    
     images.map((file) => formdata.append('images', file));
     formdata.append('price', price);
     formdata.append('name', name);
-    formdata.append('rating', '5');
+    formdata.append('rating', rating);
     formdata.append('size', dressSize);
-    formdata.append('color', dressColor);
-    formdata.append('dressType', dressType);
+    formdata.append('color', color);
+    formdata.append('category', category);
     formdata.append('inStock', inStock);
-    formdata.append('details', JSON.stringify(productDetails));
+    formdata.append('details', details);
+    formdata.append('subCategory', subCategory);
+    formdata.append('brand', brand);
+    formdata.append('stockQuantity', stockQuantity);
+    // formdata.append('details', JSON.stringify(productDetails));
 
     axios
       .post('/product', formdata)
@@ -76,9 +73,11 @@ export const ProductForm = () => {
         });
       })
       .catch((err) => {
+        console.log(err)
         setIsLoading(false);
         toast.error('Unable To Add Product', {
           autoClose: '1500',
+          
         });
       });
   };
@@ -151,41 +150,34 @@ export const ProductForm = () => {
           <div className='form-group'>
             <Select
               defaultValue={[]}
-              placeholder='Select Dress Type..'
-              name='dressType'
-              options={OPTIONS.dressTypeOptions}
+              placeholder='Select Category'
+              name='category'
+              options={OPTIONS.categoryOptions}
               onChange={({ value }) => {
-                setDressType(value);
+                setCategory(value);
               }}
             />
           </div>
         </div>
         <div className='col-md-6'>
-          <div className='form-group'>
-            <Select
-              defaultValue={[]}
-              isMulti
-              placeholder='Select Dress Size..'
-              name='colors'
-              innerRef={register}
-              options={OPTIONS.dressSizeOptions}
-              onChange={(values) => {
-                values !== null &&
-                  setDressSize(values.map(({ value }) => value));
-              }}
+        <div className='form-group'>
+            <input
+              type='text'
+              className='form-control'
+              name='subCategory'
+              ref={register}
+              placeholder='Enter Sub-Category'
             />
           </div>
         </div>
         <div className='col-md-6'>
-          <div className='form-group'>
-            <CreatableSelect
-              isMulti
-              placeholder='Select Dress Color..'
-              options={OPTIONS.dressColorOptions}
-              onChange={(values) => {
-                values !== null &&
-                  setDressColor(values.map(({ value }) => value));
-              }}
+        <div className='form-group'>
+            <input
+              type='text'
+              className='form-control'
+              name='brand'
+              ref={register}
+              placeholder='Enter Brand'
             />
           </div>
         </div>
@@ -195,52 +187,67 @@ export const ProductForm = () => {
             <span className='tag '>Optional</span>
           </div>
           <div className='row'>
-            <div className='col-md-4'>
+            <div className='col-md-3'>
               <div className='form-group'>
                 <input
-                  name='closure'
+                  name='color'
                   ref={register}
                   type='text'
                   className='form-control'
-                  placeholder='Enter Closure'
+                  placeholder='Enter Color'
                 />
               </div>
             </div>
-            <div className='col-md-4'>
+            <div className='col-md-3'>
               <div className='form-group'>
-                <input
-                  name='fabric'
-                  ref={register}
-                  type='text'
-                  className='form-control'
-                  placeholder='Enter Fabric'
-                />
+              <Select
+              defaultValue={[]}
+              placeholder='Select Size'
+              name='size'
+              options={OPTIONS.dressSizeOptions}
+              onChange={({ value }) => {
+                setDressSize(value);
+              }}
+            />
               </div>
             </div>
-            <div className='col-md-4'>
+            <div className='col-md-3'>
               <div className='form-group'>
                 <input
-                  name='length'
+                  name='rating'
                   ref={register}
                   type='text'
                   className='form-control'
-                  placeholder='Enter Length'
+                  placeholder='Enter Eco Friendly Rating'
                 />
               </div>
+              
+            </div>
+            <div className='col-md-3'>
+              <div className='form-group'>
+                <input
+                  name='stockQuantity'
+                  ref={register}
+                  type='text'
+                  className='form-control'
+                  placeholder='Enter Stock Quantity'
+                />
+              </div>
+              
             </div>
 
-            <div className='col-md-6'>
+            <div className='col-md-12'>
               <div className='form-group'>
                 <input
-                  name='neckLine'
+                  name='details'
                   ref={register}
                   type='text'
                   className='form-control'
-                  placeholder='Enter Neckline'
+                  placeholder='Enter Details'
                 />
               </div>
             </div>
-            <div className='col-md-6'>
+            {/* <div className='col-md-6'>
               <div className='form-group'>
                 <input
                   name='waistLine'
@@ -272,7 +279,7 @@ export const ProductForm = () => {
                   placeholder='Enter Model Height And Size'
                 />
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
 

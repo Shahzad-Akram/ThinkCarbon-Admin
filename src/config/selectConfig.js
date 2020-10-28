@@ -26,53 +26,32 @@ export const OPTIONS = {
       label: 'Extra Extra large',
     },
   ],
-  dressTypeOptions: [
+  categoryOptions: [
     {
-      value: 'casual',
-      label: 'Casual',
+      value: 'electronics',
+      label: 'Electronics',
     },
     {
-      value: 'evening',
-      label: 'Evening',
+      value: 'clothing',
+      label: 'Clothing',
     },
     {
-      value: 'a-line',
-      label: 'A-Line',
-    },
-    {
-      value: 'ball-gown',
-      label: 'Ball Gown',
-    },
-    {
-      value: 'a-line-princess',
-      label: 'A-Line / Princess',
-    },
-    {
-      value: 'modified-a-line',
-      label: 'Modified A-Line',
-    },
-    {
-      value: 'sheath',
-      label: 'Sheath',
-    },
-
-    {
-      value: 'empire-waist',
-      label: 'Empire-Waist',
-    },
-    {
-      value: 'mermaid',
-      label: 'Mermaid',
-    },
-    {
-      value: 'trumpet',
-      label: 'Trumpet',
-    },
+      value: 'homeproducts',
+      label: 'Home Products',
+    }
   ],
-  dressColorOptions: [
+  deliveryOptions: [
     {
-      value: '#333',
-      label: '#333',
+      value: 'approved',
+      label: 'approved',
+    },
+    {
+      value: 'delievered',
+      label: 'delievered',
+    },
+    {
+      value: 'on the way',
+      label: 'on the way',
     },
   ],
 };

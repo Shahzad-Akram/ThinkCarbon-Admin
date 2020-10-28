@@ -9,8 +9,8 @@ import 'react-toggle/style.css';
 
 const baseURL =
   window.location.hostname === 'localhost'
-    ? 'https://nadaasi-backend.herokuapp.com/'
-    : 'https://nadaasi-backend.herokuapp.com/';
+    ? 'https://think-carbon-neutral-shop.herokuapp.com/'
+    : 'https://think-carbon-neutral-shop.herokuapp.com/';
 
 if (process.env.API) axios.defaults.baseURL = process.env.API;
 else axios.defaults.baseURL = baseURL;

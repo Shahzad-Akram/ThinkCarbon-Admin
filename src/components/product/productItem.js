@@ -2,6 +2,7 @@ import React from 'react';
 import Toggle from 'react-toggle';
 import axios from 'axios';
 export const ProductItem = ({ product }) => {
+  console.log(product)
   const {
     name,
     color,
@@ -14,11 +15,13 @@ export const ProductItem = ({ product }) => {
     isActive,
   } = product;
 
-  const handleChange = (_id, status) => {
-    axios
+  const handleChange = async (_id, status) => {
+    console.log(status)
+   await axios
       .patch(`/product/${_id}`, status)
       .then((res) => console.log(res.data))
       .catch((err) => console.log(err.response.data));
+      window.location.reload(true);
   };
 
   return (

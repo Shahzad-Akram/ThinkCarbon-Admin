@@ -37,14 +37,14 @@ const Appbar = () => {
               >
                 <img
                   className='ml-2'
-                  src={Logo}
+                  src='https://osp-server.s3.us-east-2.amazonaws.com/logo.png'
                   alt='Nadaasi Logo'
                   width='90px'
                 />{' '}
                 <span className='text-white ml-1'>Admin</span>
               </NavLink>
             </MenuItem>
-            <MenuItem icon={<FeatherIcon icon='users' />}>
+            {/* <MenuItem icon={<FeatherIcon icon='users' />}>
               {' '}
               <NavLink
                 exact={true}
@@ -54,8 +54,8 @@ const Appbar = () => {
               >
                 Users
               </NavLink>
-            </MenuItem>
-            <SubMenu title='Coupons' icon={<FeatherIcon icon='gift' />}>
+            </MenuItem> */}
+            {/* <SubMenu title='Coupons' icon={<FeatherIcon icon='gift' />}>
               <MenuItem>
                 {' '}
                 <NavLink
@@ -77,7 +77,7 @@ const Appbar = () => {
                   Add Coupons
                 </NavLink>
               </MenuItem>
-            </SubMenu>
+            </SubMenu> */}
             <SubMenu title='Products' icon={<FeatherIcon icon='package' />}>
               <MenuItem>
                 <NavLink

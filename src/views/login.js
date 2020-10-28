@@ -17,7 +17,7 @@ export const Login = () => {
     setIsLoading(false);
     if (localStorage.getItem('loggedIn')) {
       setAuthorizationToken();
-      history.push('/coupons');
+      history.push('/products');
     }
     // eslint-disable-next-line
   }, []);
@@ -34,7 +34,7 @@ export const Login = () => {
       .then((res) => {
         localStorage.setItem('loggedIn', res.data.token);
         setIsLoading(false);
-        history.push('/coupons');
+        history.push('/products');
       })
       .catch((err) => {
         setIsLoading(false);
@@ -50,7 +50,7 @@ export const Login = () => {
         ) : (
           <>
             {error && <Alert color='danger'>Invalid Credentials.</Alert>}
-            <img src={logo} alt='logo' width='100%' />
+            <img src='https://osp-server.s3.us-east-2.amazonaws.com/logo.png' alt='logo' width='50%' />
             <small className='text-right w-100 d-block px-2 font-weight-bold '>
               Admin
             </small>
